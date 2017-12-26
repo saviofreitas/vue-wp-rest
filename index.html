@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Bulma Project</title>
+    <link rel="stylesheet" href="./node_modules/bulma/css/bulma.css" >
+    <link rel="stylesheet" href="./assets/css/simple.css" >
+    <link rel="stylesheet" href="./assets/font-awesome/css/font-awesome.min.css" >
+</head>
+<body>
+    <section class="hero is-primary is-fullheight">
+        <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="navbar-item">
+                            <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo">
+                        </a>
+                        <span class="navbar-burger burger" >
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </div>
+                    <div id="navbar-menu-hero" class="navbar-menu">
+                        <div class="navbar-end">
+                            <a class="navbar-item is-active">
+                                Home
+                            </a>
+                            <a class="navbar-item" href="./vue.html">
+                                Examples
+                            </a>                                                        
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title">
+                    Marotudo
+                </h1>
+                <h2 class="subtitle">
+                    chavoso
+                </h2>
+                <div id="app">
+                    {{ message }}
+                    <br/>
+                    <span v-bind:title="title">
+                        Hover your mouse over me for a few seconds
+                        to see my dynamically bound title!
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-footer">
+            <nav class="tabs">
+                <div class="container">
+                    <ul>
+                        <li class="is-active"><a>Overview</a></li>
+                        <li><a>Modifiers</a></li>
+                        <li><a>Grid</a></li>
+                        <li><a>Elements</a></li>
+                        <li><a>Components</a></li>
+                        <li><a>Layout</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+          <h1 class="title">
+            Hello World
+          </h1>
+          <p class="subtitle">
+            My first website with <strong>Bulma</strong>!
+          </p>
+        </div>
+    </section>
+    <hr/>
+    <nav class="level">
+        <div class="level-item has-text-centered">
+            <div>
+            <p class="heading">Tweets</p>
+            <p class="title">3,456</p>
+            </div>
+        </div>
+        <div class="level-item has-text-centered">
+            <div>
+            <p class="heading">Following</p>
+            <p class="title">123</p>
+            </div>
+        </div>
+        <div class="level-item has-text-centered">
+            <div>
+            <p class="heading">Followers</p>
+            <p class="title">456K</p>
+            </div>
+        </div>
+        <div class="level-item has-text-centered">
+            <div>
+            <p class="heading">Likes</p>
+            <p class="title">789</p>
+            </div>
+        </div>
+    </nav>
+
+    <hr/>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-4-mobile">
+                    <p class="notification is-info">1</p>
+                </div>
+                <div class="column">
+                    <p class="notification is-success">2</p>
+                </div>                
+            </div>
+
+            <hr/>
+
+            <div class="columns">
+                <div class="column">
+                    <p class="notification is-info">2</p>
+                </div>                
+                <div class="column is-half">
+                    algo aqui
+                </div>
+                <div class="column is-5">
+                    <p class="notification is-primary">1</p>
+                </div>
+            </div>
+
+            <hr/>
+
+            <div class="columns is-multiline is-mobile">
+                <div class="column">
+                    <p class="notification is-info">1</p>
+                </div>  
+                <div class="column">
+                        <p class="notification is-info">2</p>
+                </div>  
+                <div class="column">
+                    <p class="notification is-info">3</p>
+                </div>  
+                <div class="column">
+                    <p class="notification is-info">4</p>
+                </div> 
+                <div class="column is-half">
+                    <p class="notification is-info">5</p>
+                </div>  
+                <div class="column">
+                    <p class="notification is-info">6</p>
+                </div>  
+                <div class="column">
+                    <p class="notification is-info">7</p>
+                </div>  
+                <div class="column is-4 ">
+                    <p class="notification is-info">8</p>
+                </div> 
+            </div>
+        </div>
+    </section>    
+
+    <hr/>
+
+    <div class="tile is-ancestor">
+        <div class="tile is-vertical is-8">
+            <div class="tile">
+                <div class="tile is-parent is-vertical">
+                    <article class="tile is-child notification is-primary">
+                        <p class="title">Vertical...</p>
+                        <p class="subtitle">Top tile</p>
+                    </article>
+                    <article class="tile is-child notification is-warning">
+                        <p class="title">...tiles</p>
+                        <p class="subtitle">Bottom tile</p>
+                    </article>
+                </div>
+                <div class="tile is-parent">
+                    <article class="tile is-child notification is-info">
+                        <p class="title">Middle tile</p>
+                        <p class="subtitle">With an image</p>
+                        <figure class="image is-4by3">
+                            <img src="https://bulma.io/images/placeholders/640x480.png">
+                        </figure>
+                    </article>
+                </div>
+            </div>
+            <div class="tile is-parent">
+                <article class="tile is-child notification is-danger">
+                    <p class="title">Wide tile</p>
+                    <p class="subtitle">Aligned with the right tile</p>
+                    <div class="content">
+                        outro ora pois aqui
+                      </div>
+                </article>
+            </div>
+        </div>
+        <div class="tile is-parent">
+            <article class="tile is-child notification is-success">
+                <div class="content">
+                    <p class="title">Tall tile</p>
+                    <p class="subtitle">With even more content</p>
+                    <div class="content">
+                        Algum ora pois aqui
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div> 
+
+    <hr/>
+
+    <div class="tile is-ancestor">
+        <div class="tile is-vertical is-8">
+            <div class="tile">
+                <div class="tile is-parent is-vertical">
+                    <article class="tile is-child notification is-success">
+                        <p class="title">Vertical 1</p>
+                        <p class="subtitle">Top tile 1</p>
+                    </article>                                                    
+                    <article class="tile is-child notification is-primary">
+                        <p class="title">Vertical...</p>
+                        <p class="subtitle">Top tile</p>
+                    </article>
+                </div>
+
+                <div class="tile is-parent">
+                    <article class="tile is-child notification is-primary">
+                        <p class="title">Vertical 1</p>
+                        <p class="subtitle">Top tile 1</p>
+                    </article> 
+                </div>
+            </div>
+
+            <div class="tile is-parent">
+                <article class="tile is-child notification is-warning">
+                    <p class="title">Vertical 1</p>
+                    <p class="subtitle">Top tile 1</p>
+                </article> 
+            </div>
+        </div>
+
+        <div class="tile is-parent">
+            <article class="tile is-child notification is-success">
+                <div class="content">
+                    <p class="title">Tall tile</p>
+                    <p class="subtitle">With even more content</p>
+                    <div class="content">
+                        Algum ora pois aqui
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript" src="./assets/js/simple.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Vue Project</title>
+    <link rel="stylesheet" href="./node_modules/bulma/css/bulma.css" >
+    <link rel="stylesheet" href="./assets/css/simple.css" >
+    <link rel="stylesheet" href="./assets/font-awesome/css/font-awesome.min.css" >
+</head>
+<body>
+    <section class="hero is-primary is-fullheight">
+        <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="navbar-item">
+                            <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo">
+                        </a>
+                        <span class="navbar-burger burger" >
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </div>
+                    <div id="navbar-menu-hero" class="navbar-menu">
+                        <div class="navbar-end">
+                            <a class="navbar-item is-active">
+                                Home
+                            </a>
+                            <a class="navbar-item" href="./vue.html">
+                                Examples
+                            </a>                                                        
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="hero-body">
+            <div class="container">                                
+                <div id="app">
+                    <div class="field has-addons">
+                        <div class="control">
+                            <input id="item" class="input" type="text" placeholder="Descrição da tarefa" required>
+                        </div>
+                        <div class="control">
+                            <button @click.prevent="inputTask" title="Adicionar tarefa" class="button is-info"><i class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <hr/>
+                    <table class="table is-striped">
+                        <thead>
+                            <tr>
+                                <th>Task</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="todo, index in todos">
+                                <td>
+                                    <span v-bind:class="{ 'is-done': todo.done }">{{ todo.text }}</span>
+                                </td>
+                                <td>
+                                    <a @click.prevent="completeTask(index)" ><i class="fa fa-check"></i></a>
+                                    <a v-show="!todo.done" @click.prevent="removeTask(index)" ><i class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>                    
+                    </table>  
+                </div>                                 
+            </div>
+        </div>        
+    </section>
+
+    <section id="wp" class="section">
+        <div class="container">
+                <!-- <template v-for="post in posts">
+                    <div class="post">
+                        <h2 class="post-title" v-html="post.title.rendered"></h2>
+                        <a v-if="post._embedded['wp:featuredmedia'][0].media_details.sizes['large']" :href="post.link">
+                            <img :src="post._embedded['wp:featuredmedia'][0].media_details.sizes['large'].source_url" />
+                        </a>
+                        <div class="excerpt" v-if="post.excerpt.rendered" v-html="post.excerpt.rendered"></div>
+                        <div class="entry-meta" v-if="post._embedded.author[0]">
+                            <a class="author-wrap" :href="post._embedded.author[0].link">by&nbsp; {{ post._embedded.author[0].name }} </a>
+                            <a class="button read-more" :href="post.link">Read More &raquo;</a>
+                        </div>
+                    </div>
+                </template> -->
+            <div class="columns is-multiline" >
+                <div class="column is-4" v-for="post in posts">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img :src="post._embedded['wp:featuredmedia'][0].media_details.sizes['full'].source_url" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                
+                                <div class="media-content">
+                                    <p class="title is-4">{{ post.title.rendered }}</p>
+                                    <p class="subtitle is-6">@{{ post._embedded.author[0].name }}</p>
+                                </div>
+                            </div>
+                                        
+                            <div class="content">
+                                <a>@{{ post._embedded.author[0].name }}</a>.
+                                <a href="#">{{ post._embedded['wp:term'][0][0].name }}</a> <a href="#">#responsive</a>
+                                <br>
+                                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                                <span v-html="post.excerpt.rendered"><span>. 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="./node_modules/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript" src="./assets/js/simple.js"></script>
+</body>
+</html>
