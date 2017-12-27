@@ -7,8 +7,6 @@
     });
 })();
 
-const WP_URL = 'http://10.32.10.134/wordpress/wp-json/wp/v2/';
-
 var app = new Vue({
     el: '#app',
     data: {               
@@ -33,51 +31,27 @@ var app = new Vue({
     }
 });
 
-(function() {
-    axios.get(WP_URL + 'posts?_embed').then(function (response) {
-        if(response.status == 200) {            
-            var wp = new Vue({
-                el: '#wp',
-                data: {
-                    post: {},
-                    posts: response.data
-                }
+const WP_URL = 'http://10.32.10.134/wordpress/wp-json/wp/v2/posts?_embed';
+
+var wp = new Vue({
+    el: '#wp',
+    data: {
+        post: {},
+        posts: null
+    },
+    created: function(){
+        this.fetchData();
+    },
+    methods: {        
+        fetchData: function() {
+            var self = this;
+            axios.get(WP_URL).then(function (response) {
+                if(response.status == 200) {                            
+                    self.posts = response.data;
+                }                        
+            }).catch(function (error) {
+                console.log(error);
             });
-            
-        }                        
-    }).catch(function (error) {
-        console.log(error);
-    });
-})();
-
-// var posts = new Vue({
-
-// 	el: '#wp',
-
-// 	data: {
-// 		authors: ['1'],
-// 		currentAuthor: '1',
-// 		posts: null
-// 	},
-
-// 	created: function() {
-// 		this.fetchData()
-// 	},
-
-// 	watch: {
-// 		currentAuthor: 'fetchData'
-// 	},
-
-// 	methods: {
-// 		fetchData: function() {
-// 			var xhr = new XMLHttpRequest()
-// 			var self = this
-// 			xhr.open('GET', WP_URL + 'posts?_embed');
-// 			xhr.onload = function() {
-// 				self.posts = JSON.parse(xhr.responseText)
-// 				console.log(self.posts[0].link)
-// 			}
-// 			xhr.send()
-// 		}
-// 	}
-// })
+        }
+    }
+});
